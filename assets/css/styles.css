@@ -1,0 +1,170 @@
+﻿/* 1. CSS variables */
+:root {
+  --primary: #142f4c;
+  --secondary: #215c47;
+  --accent: #bd913e;
+  --text: #233446;
+  --muted: #526273;
+  --border: #d9e0e4;
+  --background: #f3f5f5;
+  --surface: #fff;
+  --soft: #edf3ef;
+  --sidebar-width: 226px;
+  --content-max-width: 1480px;
+}
+/* 2. Reset / base */
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--text); background: var(--background); font-family: Arial, Helvetica, sans-serif; line-height: 1.65; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--secondary); text-underline-offset: .2em; overflow-wrap: anywhere; }
+a:hover { text-decoration-thickness: 2px; }
+button, summary, a { -webkit-tap-highlight-color: transparent; }
+p, li, dd { overflow-wrap: anywhere; }
+/* 3. Typography */
+h1, h2, h3 { color: var(--primary); line-height: 1.3; }
+h1 { margin: .25em 0 .5em; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.8rem, 2.5vw, 2.65rem); font-weight: 500; }
+h2 { margin: 0 0 1rem; font-family: Georgia, 'Times New Roman', serif; font-size: 1.4rem; }
+h3 { margin: 0 0 .65rem; font-size: 1.04rem; }
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+.eyebrow { color: var(--secondary); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.help, small { color: var(--muted); font-size: .85rem; }
+/* 4. Header */
+.government-bar { background: var(--primary); color: var(--surface); font-size: .76rem; }
+.government-bar > div { max-width: var(--content-max-width); margin: auto; padding: .45rem 2rem; display: flex; justify-content: space-between; gap: 1rem; }
+.site-header { max-width: var(--content-max-width); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.6rem 2rem; background: var(--surface); }
+.identity { display: flex; align-items: center; gap: 1.1rem; color: var(--primary); text-decoration: none; min-width: 0; }
+.identity img { width: 80px; height: 88px; object-fit: contain; flex-shrink: 0; }
+.identity > span { display: grid; }
+.institution-type { font-size: clamp(.95rem, 1.5vw, 1.3rem); }
+.institution-name { font: bold clamp(1.35rem, 2.4vw, 2rem)/1.35 Georgia, serif; }
+.institution-location { font-size: .82rem; color: var(--muted); margin-top: .3rem; }
+.header-note { border-left: 2px solid var(--accent); padding-left: 1rem; color: var(--muted); font-size: .75rem; max-width: 225px; }
+/* 5. Navigation / sidebar */
+.top-nav { background: var(--secondary); border-bottom: 3px solid var(--accent); }
+.top-nav > div { max-width: var(--content-max-width); margin: auto; display: flex; padding: 0 2rem; flex-wrap: wrap; }
+.top-nav a { padding: .65rem 1.2rem; color: var(--surface); text-decoration: none; font-size: .85rem; }
+.top-nav a:hover, .top-nav a[aria-current] { background: var(--primary); text-decoration: underline; }
+.side-menu { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--secondary); }
+.side-menu summary { padding: .85rem 1rem; color: var(--primary); font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; cursor: pointer; }
+.side-menu ul { list-style: none; padding: 0; margin: 0; }
+.side-menu li { margin: 0; border-top: 1px solid var(--border); }
+.side-menu a { display: block; padding: .58rem 1rem; color: var(--text); text-decoration: none; line-height: 1.45; font-size: .83rem; border-left: 3px solid transparent; }
+.side-menu a:hover { background: var(--soft); text-decoration: underline; }
+.side-menu a[aria-current] { background: var(--soft); color: var(--secondary); font-weight: bold; border-left-color: var(--secondary); text-decoration: underline; }
+.sidebar-help { margin-top: 1.1rem; padding: 1rem; border: 1px solid var(--border); background: var(--soft); font-size: .8rem; }
+.sidebar-help h2 { font-family: inherit; font-size: .95rem; }
+/* 6. Main layout */
+.site-layout { display: grid; grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width); gap: 1.5rem; align-items: start; max-width: var(--content-max-width); margin: 1.6rem auto 3rem; padding: 0 2rem; }
+main { min-width: 0; }
+.page-heading { padding: 1.5rem 1.6rem; background: var(--soft); border-bottom: 3px solid var(--accent); margin-bottom: 1.5rem; }
+.page-heading > p:last-child { font-size: .9rem; color: var(--muted); }
+.section { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1.25rem; }
+.section > h2 { padding-bottom: .7rem; border-bottom: 1px solid var(--border); }
+/* 7. Homepage components */
+.campus { margin: 0 0 1.25rem; background: var(--surface); border: 1px solid var(--border); }
+.campus img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+figcaption { padding: .6rem .9rem; font-size: .72rem; color: var(--muted); }
+.actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.button { display: inline-block; padding: .65rem 1rem; background: var(--secondary); color: var(--surface); text-decoration: none; border: 1px solid var(--secondary); font-size: .85rem; font-weight: bold; }
+.button:hover { background: var(--primary); text-decoration: underline; }
+.text-link { font-weight: bold; font-size: .85rem; }
+/* 8. Cards */
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.card { padding: 1.1rem; border: 1px solid var(--border); background: var(--surface); min-width: 0; }
+.card > p, .card > dl { font-size: .88rem; }
+.card a { font-size: .88rem; font-weight: bold; }
+dl { margin: 0; }
+dt { font-size: .8rem; font-weight: bold; color: var(--primary); margin-top: .8rem; }
+dt:first-child { margin-top: 0; }
+dd { margin: .15rem 0 .6rem; color: var(--muted); }
+/* 9. Tables */
+.table-scroll { overflow-x: auto; max-width: 100%; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: .82rem; text-align: left; }
+caption { text-align: left; padding: .75rem; font-weight: bold; color: var(--primary); background: var(--soft); }
+th, td { padding: .8rem; border-bottom: 1px solid var(--border); vertical-align: top; min-width: 105px; }
+thead th { background: var(--primary); color: var(--surface); }
+tbody tr:nth-child(even) { background: var(--background); }
+/* 10. Staff */
+.principal { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+.image-placeholder { background: var(--background); border: 1px dashed var(--muted); padding: 1.2rem .8rem; text-align: center; margin-bottom: 1rem; color: var(--muted); }
+.image-placeholder > span { font-size: 2rem; }
+.image-placeholder p { font-size: .85rem; font-weight: bold; }
+.image-placeholder small { font-size: .7rem; }
+/* 11. Admissions */
+.status-box { background: var(--soft); padding: 1.2rem; border-left: 3px solid var(--secondary); }
+.status-box h2 { margin-top: .5rem; }
+.steps { padding-left: 1.3rem; }
+.steps li { padding: .35rem 0 .6rem .3rem; }
+/* 12. Facilities / documents */
+.document-list { list-style: square; padding-left: 1.3rem; }
+.document-list li { padding: .5rem .3rem; border-bottom: 1px solid var(--border); }
+/* 13. Notices */
+.notice { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.notice:last-child { border: 0; padding-bottom: 0; }
+.notice-date { background: var(--soft); color: var(--secondary); padding: .6rem .2rem; text-align: center; font-size: .65rem; align-self: start; }
+.notice-date strong { font-size: .75rem; }
+.notice h3 { font-size: .92rem; margin: .4rem 0; }
+.notice p { color: var(--muted); font-size: .8rem; }
+.badge { display: inline-block; background: var(--primary); color: var(--surface); padding: .1rem .35rem; letter-spacing: 0; text-transform: none; }
+/* 14. Contact */
+.contact-list { font-size: .88rem; }
+.map-panel { margin-top: 1.2rem; padding: 1.5rem; border: 1px solid var(--border); background: var(--soft); }
+.map-panel h3 { margin-top: .5rem; }
+.map-panel p { font-size: .85rem; }
+/* 15. Footer */
+.site-footer { background: var(--primary); color: var(--surface); padding: 2rem max(2rem, calc((100vw - 1416px) / 2)); display: flex; justify-content: space-between; gap: 2rem; font-size: .82rem; }
+.site-footer p { margin: .5rem 0; }
+.site-footer a { color: var(--surface); display: block; padding: .25rem 0; }
+.footer-note { max-width: 650px; font-size: .75rem; }
+/* 16. Responsive breakpoints */
+@media (min-width: 1101px) {
+  .side-menu > summary { list-style: none; }
+  .side-menu > summary::-webkit-details-marker { display: none; }
+  .side-menu:not([open]) > nav { display: block; }
+}
+@media (max-width: 1100px) {
+  .site-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .administrative-sidebar { grid-column: 1; grid-row: 1; }
+  .academic-sidebar { grid-column: 2; grid-row: 1; }
+  main { grid-column: 1 / -1; grid-row: 2; }
+  .side-menu[open] nav { max-height: 21rem; overflow-y: auto; }
+  .sidebar-help { display: none; }
+  .header-note { display: none; }
+}
+@media (max-width: 600px) {
+  .government-bar > div { padding: .5rem 1rem; font-size: .66rem; }
+  .site-header { padding: 1.25rem 1rem; }
+  .identity { gap: .7rem; }
+  .identity img { width: 55px; height: 65px; }
+  .institution-name { font-size: 1.2rem; }
+  .institution-type { font-size: .85rem; }
+  .institution-location { font-size: .72rem; }
+  .top-nav > div { padding: 0 .5rem; }
+  .top-nav a { padding: .7rem .65rem; font-size: .8rem; }
+  .site-layout { padding: 0 .75rem; margin-top: 1rem; gap: .75rem; grid-template-columns: minmax(0, 1fr); }
+  .administrative-sidebar { grid-column: 1; grid-row: 1; }
+  .academic-sidebar { grid-column: 1; grid-row: 2; }
+  main { grid-column: 1; grid-row: 3; }
+  .side-menu summary { padding: .75rem; font-size: .8rem; }
+  .page-heading, .section { padding: 1.1rem; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .principal { grid-template-columns: minmax(0, 1fr); }
+  .principal .image-placeholder { max-width: 200px; }
+  .site-footer { flex-direction: column; padding: 1.5rem; }
+  .notice { grid-template-columns: 55px minmax(0, 1fr); gap: .65rem; }
+}
+/* 17. Print / accessibility helpers */
+.skip-link { position: absolute; top: -100px; left: 1rem; z-index: 10; padding: .8rem 1rem; background: var(--surface); color: var(--primary); }
+.skip-link:focus { top: .5rem; }
+:focus-visible { outline: 3px solid #9c6800; outline-offset: 3px; }
+main:focus { outline: none; }
+@media print {
+  .government-bar, .top-nav, aside, .skip-link, .site-footer { display: none; }
+  body, .site-header { background: white; color: black; }
+  .site-layout { display: block; padding: 0; margin: 0; }
+  .section, .page-heading { border: 0; padding: .5rem 0; }
+  .table-scroll { overflow: visible; }
+  a { color: black; }
+  .card, .notice { break-inside: avoid; }
+}
